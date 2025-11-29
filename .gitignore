@@ -1,0 +1,158 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.txt
+coverage.html
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Compiled binaries
+/bin/
+/dist/
+/build/
+**/bin/
+**/dist/
+**/build/
+
+# Dependency directories
+vendor/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+**/.env
+**/.env.local
+
+# IDE and Editor files
+# VSCode
+.vscode/
+*.code-workspace
+
+# GoLand / IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# Logs
+*.log
+logs/
+**/logs/
+*.log.*
+
+# Database files (if using local SQLite)
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+**/tmp/
+**/temp/
+*.tmp
+
+# Debug files
+debug
+__debug_bin
+
+# Air live reload (if using)
+tmp/
+.air.toml
+
+# Test cache
+*.test
+testdata/
+
+# Documentation
+docs/_build/
+
+# Profiling data
+*.prof
+*.pprof
+cpu.prof
+mem.prof
+
+# Docker
+*.dockerignore
+
+# Kubernetes
+*.kubeconfig
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# Sensitive config files
+config/secrets/
+secrets/
+**/secrets/
+
+# Node modules (if you have any frontend or tools)
+node_modules/
+
+# Go module cache
+go.sum.backup
+
+# Build artifacts
+*.a
+*.o
+*.h
+
+# Service-specific build outputs
+api-gateway/api-gateway
+auth-service/auth-service
+user-service/user-service
+product-service/product-service
+
+# Any service binary with same name as directory
+*/api-gateway
+*/auth-service
+*/user-service
+*/product-service
