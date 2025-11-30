@@ -39,11 +39,12 @@ func (h *HandlerDeps) Login(ctx *gin.Context) {
 	}
 
 	//generate jwt:
-	token, err := helpers.GenerateToken(email)
+	token, err := helpers.GenerateToken(dbResponse.ID)
 	if err != nil {
 		fmt.Print("Failed generaring the token \n", err.Error())
 	}
-	dbResponse.Token = token
+
+	ctx.SetCookie("token", token, 2*36000, "/", "localhost", false, true)
 
 	helpers.SendResponse(ctx, http.StatusOK, "Login successfull", dbResponse)
 }

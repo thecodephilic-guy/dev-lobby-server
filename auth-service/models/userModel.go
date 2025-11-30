@@ -8,7 +8,6 @@ type User struct {
 	Password        string    `json:"-"` //hyphen means do not show in json responses
 	IsEmailVerified bool      `json:"isEmailVerified"`
 	CreatedAt       time.Time `json:"createdAt"`
-	Token           string    `json:"token"`
 }
 
 const UsersTableDDL = `

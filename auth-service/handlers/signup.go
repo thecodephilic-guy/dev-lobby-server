@@ -36,11 +36,12 @@ func (h *HandlerDeps) Signup(ctx *gin.Context) {
 	}
 
 	//generate jwt:
-	token, err := helpers.GenerateToken(reqBody.Email)
+	token, err := helpers.GenerateToken(response.ID)
 	if err != nil {
 		fmt.Print("Failed generaring the token \n", err.Error())
 	}
-	response.Token = token
+
+	ctx.SetCookie("token", token, 2*3600, "/", "localhost", false, true)
 
 	helpers.SendResponse(ctx, http.StatusCreated, "New user registered", response)
 }

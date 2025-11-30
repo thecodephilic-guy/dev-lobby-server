@@ -4,9 +4,8 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/thecodephilic-guy/auth-service/config"
-	"github.com/thecodephilic-guy/auth-service/handlers"
+	"github.com/thecodephilic-guy/mail-service/config"
+	"github.com/thecodephilic-guy/mail-service/handlers"
 )
 
 func main() {
@@ -22,8 +21,7 @@ func main() {
 
 	router := gin.Default()
 
-	router.POST("/signup", h.Signup)
-	router.POST("/login", h.Login)
+	router.POST("/verify/email", h.SendOTPHandler)
 
-	router.Run(":8081")
+	router.Run(":8082")
 }
