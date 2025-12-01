@@ -6,7 +6,7 @@ import "time"
 type Verification struct {
 	ID        string    `json:"id"`
 	UserID    string    `json:"userId"`
-	Code      string    `json:"-" db:"code"` // Don't expose code in JSON
+	Code      string    `json:"-"` // Don't expose code in JSON
 	Attempts  int       `json:"attempts"`
 	ExpiresAt time.Time `json:"expiresAt"`
 	CreatedAt time.Time `json:"createdAt"`
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS verifications (
 	id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 	user_id     UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 	code        VARCHAR(6) NOT NULL,
-	attempts    INTEGER NOT NULL DEFAULT -1,
+	attempts    INTEGER NOT NULL DEFAULT 0,
 	expires_at  TIMESTAMPTZ NOT NULL,
 	created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	

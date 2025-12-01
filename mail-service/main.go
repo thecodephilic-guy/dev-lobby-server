@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/thecodephilic-guy/mail-service/config"
 	"github.com/thecodephilic-guy/mail-service/handlers"
+	"github.com/thecodephilic-guy/mail-service/models"
 )
 
 func main() {
@@ -15,6 +16,9 @@ func main() {
 		log.Fatal("Failed to connect to database:", err)
 	}
 	defer db.Close()
+
+	//Creates table if not exist
+	config.CreateTable(db, models.VerificationsTableDDL)
 
 	// Initialize handlers with dependencies
 	h := handlers.NewHandlerDeps(db)

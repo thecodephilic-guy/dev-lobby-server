@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -37,7 +36,7 @@ func DropTable(name string) {
 	//implement a function to drop table
 }
 
-func CreateTable(db *pgx.Conn, tableDefination string) {
+func CreateTable(db *pgxpool.Pool, tableDefination string) {
 	ctx := context.Background()
 
 	_, err := db.Exec(ctx, tableDefination)
@@ -46,5 +45,4 @@ func CreateTable(db *pgx.Conn, tableDefination string) {
 		os.Exit(1)
 	}
 	fmt.Println("Finished creating table.")
-
 }

@@ -31,3 +31,14 @@ func ConnectDB() (*pgxpool.Pool, error) {
 	fmt.Println("DB Connection Established!✅")
 	return pool, nil
 }
+
+func CreateTable(db *pgxpool.Pool, tableDefination string) {
+	ctx := context.Background()
+
+	_, err := db.Exec(ctx, tableDefination)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to create table: %v\n", err)
+		os.Exit(1)
+	}
+	fmt.Println("Finished creating table. ✅")
+}
